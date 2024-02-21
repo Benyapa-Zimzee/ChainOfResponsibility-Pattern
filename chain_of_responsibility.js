@@ -1,4 +1,3 @@
-// SupportHandler class
 class SupportHandler {
     constructor(nextHandler = null) {
         this.nextHandler = nextHandler;
@@ -11,7 +10,6 @@ class SupportHandler {
     }
 }
 
-// TeacherSupport class
 class TeacherSupport extends SupportHandler {
     handle(request) {
         if (request === "Teacher") {
@@ -22,7 +20,6 @@ class TeacherSupport extends SupportHandler {
     }
 }
 
-// HeadOfFacultySupport class
 class HeadOfFacultySupport extends SupportHandler {
     handle(request) {
         if (request === "Head") {
@@ -33,7 +30,6 @@ class HeadOfFacultySupport extends SupportHandler {
     }
 }
 
-// DeanSupport class
 class DeanSupport extends SupportHandler {
     handle(request) {
         if (request === "Dean") {
@@ -44,7 +40,6 @@ class DeanSupport extends SupportHandler {
     }
 }
 
-// FinanceSupport class
 class FinanceSupport extends SupportHandler {
     handle(request) {
         if (request === "Finance") {
@@ -55,7 +50,6 @@ class FinanceSupport extends SupportHandler {
     }
 }
 
-// HRSupport class
 class HRSupport extends SupportHandler {
     handle(request) {
         if (request === "HR") {
@@ -66,13 +60,11 @@ class HRSupport extends SupportHandler {
     }
 }
 
-// Function to handle the request
 function handleRequest() {
     const request = document.getElementById("request").value;
     supportHandler.handle(request);
 }
 
-// Setting up the chain of responsibility
 const hrSupport = new HRSupport();
 const financeSupport = new FinanceSupport(hrSupport);
 const deanSupport = new DeanSupport(financeSupport);
